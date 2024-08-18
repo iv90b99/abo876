@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تغيير اسم المستخدم على تيك توك</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="wave-bg"></div>
+    <div class="container">
+        <h1>موقع تغيير يوزرات التيك توك</h1>
+        
+        <form id="usernameForm" onsubmit="return changeUsername();">
+            <label for="sessionId">Session ID أدخل الــ</label>
+            <input type="text" id="sessionId" name="sessionId" required>
+            
+            <label for="currentUsername">اسم اليوزر الحالي</label>
+            <input type="text" id="currentUsername" name="currentUsername" readonly>
+            
+            <label for="newUsername">أدخل اسم اليوزر الجديد</label>
+            <input type="text" id="newUsername" name="newUsername" required>
+            
+            <button type="submit">إرسال</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <footer>
+        <p>صنع بواسطة المهندس عبدالله القحطاني</p>
+    </footer>
+
+    <script>
+        async function updateCurrentUsername() {
+            const sessionId = document.getElementById('sessionId').value;
+
+            if (sessionId) {
+                const response = await fetch(`/current-username?sessionId=${sessionId}`);
+                const result = await response.json();
+                document.getElementById('currentUsername').value = result.username;
+            }
+        }
+
+        async function changeUsername() {
+            const sessionId = document.getElementById('sessionId').value;
+            const newUsername = document.getElementById('newUsername').value;
+
+            const response = await fetch('/change-username', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ sessionId, newUsername })
+            });
+
+            const result = await response.json();
+            document.getElementById('result').innerText = result.message;
+            return false;
+        }
+
+        document.getElementById('sessionId').addEventListener('input', updateCurrentUsername);
+    </script>
+</body>
+</html>

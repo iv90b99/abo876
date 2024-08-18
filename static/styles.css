@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212; /* Deep dark background */
+    color: #E0E0E0; /* Light text color */
+    overflow: hidden;
+    background: url('hack.gif') no-repeat center center fixed; /* Static background image */
+    background-size: cover; /* Cover the entire background area */
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 60px;
+    background-color: rgba(20, 20, 20, 0.8); /* Semi-transparent background */
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.8); /* Deep shadow for a 3D effect */
+    max-width: 700px;
+    margin: 100px auto;
+    backdrop-filter: blur(10px); /* Blurred background for depth */
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #760202;
+    text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    transition: color 0.3s ease;
+}
+
+h1:hover {
+    color: #760202;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #760202;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    border: 1px solid #760202;
+    background-color: rgba(51, 51, 51, 0.6); /* Semi-transparent input background */
+    color: #E0E0E0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input:focus {
+    background-color: rgba(68, 68, 68, 0.8); /* Darker background on focus */
+    border-color: #760202;
+    outline: none;
+    box-shadow: 0 0 8px #760202(0, 176, 255, 0.5);
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    background-color: #760202;
+    color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #760202;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px #760202(0, 176, 255, 0.5);
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #760202;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(28, 28, 28, 0.9); /* Semi-transparent footer background */
+    color: #9E9E9E;
+    font-size: 16px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.2em;
+}
